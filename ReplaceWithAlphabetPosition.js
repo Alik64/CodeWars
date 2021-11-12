@@ -10,7 +10,7 @@ Example
 alphabetPosition("The sunset sets at twelve o' clock.")
 Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" (as a string) */
 
-const alphabet = {
+const alph = {
   a: 1,
   b: 2,
   c: 3,
@@ -40,5 +40,18 @@ const alphabet = {
 };
 
 function alphabetPosition(text) {
-  return text;
+  let strArr = text.replace(/\s/g, "").toLowerCase().split(""); // ['t', 'h', 'e', 's', 'u', 'n' ...]
+  let keysArr = Object.keys(alph);
+  let result = [];
+
+  for (let i = 0; i < strArr.length; i++) {
+    for (let j = 0; j < keysArr.length; j++) {
+      if (strArr[i] === keysArr[j]) {
+        result.push(alph[keysArr[j]]);
+      }
+    }
+  }
+
+  return result.join(" ");
 }
+alphabetPosition("The sunset sets at twelve o' clock.");
