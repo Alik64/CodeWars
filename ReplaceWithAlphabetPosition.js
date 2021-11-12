@@ -10,6 +10,7 @@ Example
 alphabetPosition("The sunset sets at twelve o' clock.")
 Should return "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11" (as a string) */
 
+// First solution
 const alph = {
   a: 1,
   b: 2,
@@ -55,3 +56,16 @@ function alphabetPosition(text) {
   return result.join(" ");
 }
 alphabetPosition("The sunset sets at twelve o' clock.");
+
+// Second solution
+
+let alphabetPosition2 = (text) =>
+  text
+    .replace(/\s/g, "")
+    .toLowerCase()
+    .split("")
+    .map((char) => char.charCodeAt(0) - 64) // UTF-16 of A is 65, so char.charCodeAt(0) => 1 etc.
+    .join("");
+
+console.log(alphabetPosition("The sunset sets at twelve o' clock."));
+console.log(charCodeAt(a));
