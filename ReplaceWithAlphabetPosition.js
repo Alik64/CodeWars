@@ -62,10 +62,8 @@ alphabetPosition("The sunset sets at twelve o' clock.");
 let alphabetPosition2 = (text) =>
   text
     .replace(/\s/g, "")
-    .toLowerCase()
     .split("")
     .map((char) => char.charCodeAt(0) - 64) // UTF-16 of A is 65, so char.charCodeAt(0) => 1 etc.
     .join("");
 
 console.log(alphabetPosition("The sunset sets at twelve o' clock."));
-console.log(charCodeAt(a));
